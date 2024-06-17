@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Mulish', sans-serif;
+}
+
+:root{
+    font-size: 62.5%;
+    --blue:hsl(195, 91%, 25%);
+    --white:hsl(0, 0%, 100%);
+    --title:hsl(240, 6%, 13%);
+    --text:hsl(240, 5%, 7%);
+    --input:hsla(0, 0%, 100%, 0.2);
+    --footer:hsl(195, 46%, 40%);
+}
+body{
+    font-size: 1.6rem;
+}
+.container{
+    margin: 0 auto;
+    width: 43rem;
+}
+#app{
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "main main main"
+    "aside aside aside"
+    "footer footer footer";
+}
+
+header{
+    grid-area: header;
+}
+main{
+    grid-area: main;
+}
+aside{
+    grid-area: aside;
+}
+footer{
+    grid-area: footer;
+}
+/* BOOT CSS*/
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50%{
+        transform: scale(1.4);
+    }
+}
+
+@keyframes move{
+    0%{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}
+
+/*Keyframes*/
+
+.menu{
+    display: flex;
+    height: 7.2rem;
+    padding: 1.2rem 2.8rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    background-color: var(--blue);
+}
+.logo{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    padding: .8rem;
+}
+.menu form label{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+}
+.menu form input{
+    border-radius: .4rem;
+    padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+    background-color: var(--input);
+    border: 0;
+}
+.menu form input::placeholder{
+    color: var(--white);
+}
+.avatar{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+/*HEADER FIM*/
+main .main-foto{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+
+    animation: move .5s .5s ease-in-out;
+}
+
+main h1{
+    color: var(--title);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    margin: 3.4rem 0 0 2.2rem;
+}
+.dual-buttons{
+    display: flex;
+    gap: 1.2rem;
+    margin: .8rem 0 3.1rem 2.2rem;
+    cursor: pointer;
+}
+main p{
+    color: var(--text);
+    line-height: 160%;
+    width: 38rem;
+    margin: 0 auto 3.4rem;
+}
+/*FIM MAIN*/
+
+aside h2{
+    color: var(--title);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+    margin: 0 0 3.2rem 2.2rem;
+}
+.content-wrapper{
+    margin: 0 0 0 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+.item{
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+.item img{
+    cursor: pointer;
+}
+
+.details h3{
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+}
+.details p{
+    font-size: 1.4rem;
+    line-height: 160%;
+}
+/*fim aside*/
+
+footer p{
+    background-color: var(--blue);
+    margin-top: 3.2rem;
+    text-align: center;
+    height: 6.4rem;
+    padding: 1.6rem;
+    color: var(--white);
+}
+/*fim footer*/
+
+@media screen and (min-width: 768px){
+    #app{
+        display: grid;
+        grid-template-areas: 
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+    }
+    .menu{
+        width: 100%;
+        height: 7.2rem;
+        padding: 1.2rem 11.2rem;
+        margin: 0 auto 4.4rem;
+    }
+    header .container{
+        width: 100%;
+    }
+    .menu form input{
+    width: 108.3rem;
+    padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+    }
+    main .container{
+        width: 80rem;
+        margin-left: 11.2rem;
+    }
+    main .main-foto{
+        width: 80.3rem;
+        height: 40.5rem;
+
+    }
+    .wrapper{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    main h1, .dual-buttons{
+        margin: 3.1rem 0;
+    }
+
+    main p{
+        width: 80rem;
+    }
+
+    aside .container{
+        width: 38rem;
+        margin-right: 11.2rem;
+    }
+
+    footer .container{
+        width: 100%;
+    }  
+}
